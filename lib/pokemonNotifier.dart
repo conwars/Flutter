@@ -50,6 +50,6 @@ class PokemonNotifier extends ValueNotifier<List<Pokemon>> {
     _pageNumber = pageNumber;
     value = _listPokemons;
     var temp;
-    value.sort((a, b) => a.name.compareTo(b.name));
+    value.sort((b, a) => a.name.compareTo(b.name));
   }
 }

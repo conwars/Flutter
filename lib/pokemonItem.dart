@@ -18,7 +18,9 @@ class PokemonItem extends StatelessWidget {
                 getPokemonName(),
                 getPokemonHeight(),
                 getAbilitiesRow(),
-                getStatsRows()
+                getStatsRows(),
+                getExp(),
+                getTypes()
               ]),
         ),
         Column(children: <Widget>[
@@ -71,5 +73,25 @@ class PokemonItem extends StatelessWidget {
     return Row(children: <Widget>[
       Expanded(child: Text('abilities: ' + abilitiesString))
     ]);
+  }
+
+  Widget getExp() {
+    return Row(
+      children: <Widget>[
+        Text('experience: ' + pokemon.baseExperience.toString()),
+      ],
+    );
+  }
+
+  Widget getTypes() {
+    String typesString = '';
+
+    for (Map<String, dynamic> types in pokemon.types) {
+      typesString = typesString + types['type']['name'] + ', ';
+    }
+    typesString = typesString.substring(0, typesString.length - 2);
+
+    return Row(
+        children: <Widget>[Expanded(child: Text('types: ' + typesString))]);
   }
 }
